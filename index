@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Product description automatization</title>
+  <style>
+#textarea {
+ margin-left: 50px; 
+  width: 400px;
+  height: 400px;
+    }
+.header  {
+      padding: 10px;
+  margin-bottom: 10px;
+    }
+    .paragraph {
+padding: 10px;
+      margin-bottom: 10px;
+    }    
+    .image {
+      padding: 10px;
+    }
+    
+    button {
+      margin-top: 10px;
+    }
+    
+    
+    body {
+      display: flex;
+    }
+    
+  
+  </style>
+</head>
+<body>
+ <div id="text-before">
+   <div id="sections">
+   <div id="section-1">
+  <label for="header">Nagłówek:</label>
+  <input type="text" class="header"><br>
+  <label for="paragraph">Akapit:</label>
+  <input type="text" class="paragraph"><br>
+     <label for="image">Zdjęcie/film:</label>
+  <input type="url" class="image">
+   </div>
+   </div>
+   <button type="button" id="add" onclick="addMore()">Add more</button>
+   <button type="button" id="convert" onclick="convertText()">Convert</button>
+  </div>
+  <div id="text-after">
+    <textarea id="textarea"></textarea></div>
+</body>
+</html>

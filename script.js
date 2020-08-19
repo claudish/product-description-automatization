@@ -21,7 +21,7 @@ function convertSection(section) {
     p.textContent = paragraph.value;
     console.log(p.innerHTML);
     var ul = document.createElement("ul");
-    var paragraphs = paragraph.value.split("●");
+    var paragraphs = paragraph.value.split("");
     console.log(paragraphs)
     if (paragraphs.length > 1) {
         paragraphs.forEach(li => {

@@ -12,15 +12,23 @@ function convertText() {
 
 function convertSection(section) {
     var header = section.getElementsByClassName("header")[0];
-    var h2 = document.createElement("h2");
-    h2.textContent = header.value;
-    console.log(h2.innerHTML);
-    document.getElementById("textarea").innerHTML += h2.outerHTML;
-    document.getElementById("textarea").innerHTML += paragraph.getData();
-    var image = section.getElementsByClassName("image")[0];
-    var img = document.createElement("img");
-    img.src = image.value;
-    document.getElementById("textarea").innerHTML += img.outerHTML;
+  var h2 = document.createElement("h2");
+  h2.textContent = header.value;
+  console.log(h2.innerHTML);
+document.getElementById("textarea").innerHTML += h2.outerHTML; 
+    var paragraph = section.getElementsByClassName("paragraph")[0];
+var p = document.createElement("p");
+p.textContent = paragraph.value;
+console.log(p.innerHTML);
+var ul = document.createElement("ul");
+ var paragraphs = paragraph.value.split("●");
+  console.log(paragraphs)
+  paragraphs.forEach(li => {
+                   console.log(li)
+                   if (li.length != 0) {
+              var lielement = document.createElement("li");       
+                  lielement.textContent = li;
+ul.appendChild(lielement);
 }
 
 

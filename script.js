@@ -1,5 +1,3 @@
-ClassicEditor
-    .create(document.querySelector('.ckeditor'))
 
 var sectionsCounter = 1;
 
@@ -18,7 +16,6 @@ function convertSection(section) {
     h2.textContent = header.value;
     console.log(h2.innerHTML);
     document.getElementById("textarea").innerHTML += h2.outerHTML;
-    var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
     document.getElementById("textarea").innerHTML += paragraph.getData();
     var image = section.getElementsByClassName("image")[0];
     var img = document.createElement("img");
@@ -31,8 +28,7 @@ function addMore() {
     var sections = document.getElementById("sections");
     var section1Clone = document.getElementById("section-1").cloneNode(true);
     section1Clone.id = "section-" + ++sectionsCounter;
-    section1Clone.getElementsByClassName("ck")[0].remove();
-    ClassicEditor.create(section1Clone.querySelector('.ckeditor'));
+    
 
     sections.appendChild(section1Clone);
     var input = section1Clone.getElementsByTagName("input");

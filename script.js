@@ -1,7 +1,8 @@
 
-ClassicEditor
+document.addEventListener("DOMContentLoaded", function(event) {
+ ClassicEditor
     .create(document.querySelector('.ckeditor'))
-
+});
 var sectionsCounter = 1;
 
 

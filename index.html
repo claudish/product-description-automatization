@@ -1,60 +1,58 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Product description automatization</title>
-    <style>
-        #textarea {
-            margin-left: 50px;
-            width: 400px;
-            height: 400px;
-        }
-
-        .header {
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .paragraph {
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .image {
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        button {
-            margin-top: 10px;
-        }
-
-        body {
-            display: flex;
-        }
-    </style>
-    <script src="script.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+#textarea {
+ margin-left: 50px; 
+  width: 400px;
+  height: 400px;
+    }
+.header  {
+      padding: 10px;
+  margin-bottom: 10px;
+    }
+    .paragraph {
+padding: 10px;
+      margin-bottom: 10px;
+    }    
+    .image {
+      padding: 10px;
+    }
+    
+    button {
+      margin-top: 10px;
+    }
+    
+    
+    body {
+      display: flex;
+    }
+    
+  
+  </style>
+<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+<script src="script.js"></script>
 </head>
-
 <body>
-    <div id="text-before">
-        <div id="sections">
-            <div id="section-1">
-                <label for="header">Nagłówek:</label>
-                <input type="text" class="header"><br>
-                <label for="paragraph">Akapit:</label>
-                <input type="text" class="paragraph"><br>
-                <label for="image">Zdjęcie/film:</label>
-                <input type="url" class="image">
-            </div>
-        </div>
-        <button type="button" id="add" onclick="addMore()">Add more</button>
-        <button type="button" id="convert" onclick="convertText()">Convert</button>
-    </div>
-    <div id="text-after">
-        <textarea id="textarea"></textarea></div>
+ <div id="text-before">
+   <div id="sections">
+   <div id="section-1">
+  <label for="header">Nagłówek:</label> 
+       
+  <input type="text" class="header"><br>
+     <br><label for="paragraph">Akapit:</label>
+     <div class="ckeditor"></div>
+     <label for="image">Zdjęcie/film:</label>
+  <input type="url" class="image">
+   </div>
+   </div>
+   <button type="button" id="add" onclick="addMore()">Add more</button>
+   <button type="button" id="convert" onclick="convertText()">Convert</button>
+  </div>
+  <div id="text-after">
+    <textarea id="textarea"></textarea></div>
 </body>
-
 </html>

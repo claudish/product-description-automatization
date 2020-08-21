@@ -103,8 +103,8 @@ function convertSection(section) {
     var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
   console.log(paragraph.getData())
     document.getElementById("textarea").innerHTML += paragraph.getData()
-      .replace("<p", "<p style='costam'")
-      .replace("<ul>", "<p style='costam'><ul>")
+      .replace("<p", "<p style='text-align:justify'")
+      .replace("<ul>", "<p style='text-align:justify'><ul>")
       .replace("</ul>", "</ul></p>")
     ;
     document.getElementById("textarea").innerHTML += `</div>`; // close text1 col-sm-12 text-justify

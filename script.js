@@ -12,7 +12,6 @@ function convertText() {
         
 		overflow-x: hidden;
     }
-
 .desc-items1 {
         max-width: 1181px;
 		margin:auto;
@@ -74,7 +73,6 @@ function convertText() {
         z-index: 1;
     }
     
-
         @media only screen and (max-width: 1000px) {
         .desc-items1 img {
             max-width: 100%;
@@ -99,7 +97,10 @@ function convertSection(section) {
     h2.style = "text-align: center;"
     h2.textContent = header.value;
     console.log(h2.innerHTML);
+  if (header.value) {
     document.getElementById("textarea").innerHTML += h2.outerHTML;
+  }
+    
     var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
   console.log(paragraph.getData())
     document.getElementById("textarea").innerHTML += paragraph.getData()
@@ -109,18 +110,19 @@ function convertSection(section) {
     ;
     document.getElementById("textarea").innerHTML += `</div>`; // close text1 col-sm-12 text-justify
   
-    document.getElementById("textarea").innerHTML += `<div class="row">`;
-  document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
   
     var image = section.getElementsByClassName("image")[0];
     var img = document.createElement("img");
     img.src = image.value;
-    document.getElementById("textarea").innerHTML += img.outerHTML;
-    document.getElementById("textarea").innerHTML += `</div>`; // close image row
+     if (image.value) {
+          document.getElementById("textarea").innerHTML += `<div class="row">`;
+  document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
+       document.getElementById("textarea").innerHTML;
+   document.getElementById("textarea").innerHTML += `</div>`; // close image row
     document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
-  
+     }
     document.getElementById("textarea").innerHTML += `</div>`; // close row
-}
+ 
 
 
 function addMore() {
@@ -129,10 +131,10 @@ function addMore() {
     section1Clone.id = "section-" + ++sectionsCounter;
     section1Clone.getElementsByClassName("ck")[0].remove();
     ClassicEditor.create(section1Clone.querySelector('.ckeditor'));
-  
+ 
   sections.appendChild(section1Clone);
     var input = section1Clone.getElementsByTagName("input");
-    
+}
     input[0].value = "";
     input[1].value = "";
     input[2].value = "";

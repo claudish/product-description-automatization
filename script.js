@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function(event) {
     ClassicEditor.create(document.querySelector('.ckeditor'))
 });
@@ -123,6 +121,7 @@ function convertSection(section) {
      }
     document.getElementById("textarea").innerHTML += `</div>`; // close row
  
+}
 
 
 function addMore() {
@@ -131,10 +130,10 @@ function addMore() {
     section1Clone.id = "section-" + ++sectionsCounter;
     section1Clone.getElementsByClassName("ck")[0].remove();
     ClassicEditor.create(section1Clone.querySelector('.ckeditor'));
- 
+  
   sections.appendChild(section1Clone);
     var input = section1Clone.getElementsByTagName("input");
-}
+    
     input[0].value = "";
     input[1].value = "";
     input[2].value = "";

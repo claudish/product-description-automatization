@@ -64,7 +64,6 @@ function convertText() {
     }
     
     .desc-items1 iframe {
-        border: 9px solid #000;
         border-radius: 30px !important;
         border-radius: 10px;
         overflow: hidden;

@@ -13,18 +13,23 @@
 .header  {
       padding: 10px;
   margin-bottom: 10px;
+  height: 30px;
+  width: 660px;
     }
     .paragraph {
-padding: 10px;
       margin-bottom: 10px;
     }    
     .image {
       padding: 10px;
       margin-bottom: 10px;
+      height: 30px;
+        width: 660px;
+
     }
     
     button {
       margin-top: 10px;
+      margin-bottom: 10px;
     }
     
    .ck {
@@ -40,9 +45,13 @@ padding: 10px;
 <script src="script.js"></script>
 </head>
 <body>
+  
  <div id="text-before">
+          <button type="button" id="add" onclick="addMore()">Add more</button>
+   <button type="button" id="convert" onclick="convertText()">Convert</button>
+   
    <div id="sections">
-   <div id="section-1">
+     <div id="section-1">
   <label for="header">Nagłówek:</label> 
        
   <input type="text" class="header" id="header"><br>
@@ -52,8 +61,6 @@ padding: 10px;
   <input type="url" class="image" id="image">
    </div>
    </div>
-   <button type="button" id="add" onclick="addMore()">Add more</button>
-   <button type="button" id="convert" onclick="convertText()">Convert</button>
   </div>
   <div id="text-after">
     <textarea id="textarea"></textarea></div>

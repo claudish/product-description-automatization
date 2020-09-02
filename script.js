@@ -90,7 +90,6 @@ function convertText() {
 }
 
 function convertSection(section) {
-	document.getElementById("textarea").innerHTML += `<div class="row">`;
 	var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
 	var paragraphData = paragraph.getData();
 	var header = section.getElementsByClassName("header")[0];
@@ -114,18 +113,6 @@ function convertSection(section) {
 	var image = section.getElementsByClassName("image")[0];
 	var img = document.createElement("img");
 	img.src = image.value;
-	if (image.value) {
-		document.getElementById("textarea").innerHTML += `<div class="row">`;
-		document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
-		document.getElementById("textarea").innerHTML;
-		document.getElementById("textarea").innerHTML += `</div>`; // close image row
-		document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
-	}
-	document.getElementById("textarea").innerHTML += `</div>`; // close row
-
-	var image = section.getElementsByClassName("image")[0];
-	var img = document.createElement("img");
-	img.src = image.value;
 	if (image.value.includes("youtube.com")) {
 		document.getElementById("textarea").innerHTML += `<div class="row">`;
 		document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
@@ -141,8 +128,13 @@ function convertSection(section) {
 			document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
 		}
 		document.getElementById("textarea").innerHTML += `</div>`; // close row
+      
 	}
+  		document.getElementById("textarea").innerHTML += `</div>`; // close row
+
 }
+
+document.getElementById("textarea").innerHTML += `</div>`; // close desc-items1
 
 function addMore() {
 	var sections = document.getElementById("sections");

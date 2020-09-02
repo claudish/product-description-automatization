@@ -86,14 +86,17 @@ function convertText() {
 		var sec = document.getElementById("section-" + e);
 		convertSection(sec);
 	})
+    
 	document.getElementById("textarea").innerHTML += `</div>`;
-}
+} 
+
 
 function convertSection(section) {
 	var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
 	var paragraphData = paragraph.getData();
 	var header = section.getElementsByClassName("header")[0];
 	if (paragraphData || header.value) {
+      			document.getElementById("textarea").innerHTML += `<div class="row">`;
 		document.getElementById("textarea").innerHTML += `<div class="text1 col-sm-12 text-justify">`;
 		var h2 = document.createElement("h2");
 		h2.style = "text-align: center;"
@@ -102,13 +105,13 @@ function convertSection(section) {
 			document.getElementById("textarea").innerHTML += h2.outerHTML;
 		}
 
-
 		document.getElementById("textarea").innerHTML += paragraphData
 			.replace("<p", "<p style='text-align:justify'")
 			.replace("<ul>", "<p style='text-align:justify'><ul>")
 			.replace("</ul>", "</ul></p>");
 		document.getElementById("textarea").innerHTML += `</div>`; // close text1 col-sm-12 text-justify
-	}
+	
+    }
 
 	var image = section.getElementsByClassName("image")[0];
 	var img = document.createElement("img");
@@ -128,7 +131,6 @@ function convertSection(section) {
 			document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
 		}
 		document.getElementById("textarea").innerHTML += `</div>`; // close row
-      
 	}
   		document.getElementById("textarea").innerHTML += `</div>`; // close row
 

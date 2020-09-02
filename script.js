@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-    ClassicEditor.create(document.querySelector('.ckeditor'))
+document.addEventListener("DOMContentLoaded", function (event) {
+	ClassicEditor.create(document.querySelector('.ckeditor'))
 });
 var sectionsCounter = 1;
 var sectionsIndexes = [1];
 
 function convertText() {
-    document.getElementById("textarea").innerHTML = `<style>
+	document.getElementById("textarea").innerHTML = `<style>
 .panel-description {
         
 		overflow-x: hidden;
@@ -77,104 +77,103 @@ function convertText() {
          
     
     }
-</style>\n`; 
-    document.getElementById("textarea").innerHTML += `<div class="desc-items1">`;
-    for (var i = 1; i <= sectionsIndexes.length; i++) {
-        
-    }
-  sectionsIndexes.forEach(e => {
-    var sec = document.getElementById("section-" + e);
-        convertSection(sec);
-  })
-    document.getElementById("textarea").innerHTML += `</div>`;
+</style>\n`;
+	document.getElementById("textarea").innerHTML += `<div class="desc-items1">`;
+	for (var i = 1; i <= sectionsIndexes.length; i++) {
+
+	}
+	sectionsIndexes.forEach(e => {
+		var sec = document.getElementById("section-" + e);
+		convertSection(sec);
+	})
+	document.getElementById("textarea").innerHTML += `</div>`;
 }
 
 function convertSection(section) {
-    document.getElementById("textarea").innerHTML += `<div class="row">`;
-    document.getElementById("textarea").innerHTML += `<div class="text1 col-sm-12 text-justify">`;
-    var header = section.getElementsByClassName("header")[0];
-    var h2 = document.createElement("h2");
-    h2.style = "text-align: center;"
-    h2.textContent = header.value;
-  if (header.value) {
-    document.getElementById("textarea").innerHTML += h2.outerHTML;
-  }
-    
-    var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
-    document.getElementById("textarea").innerHTML += paragraph.getData()
-      .replace("<p", "<p style='text-align:justify'")
-      .replace("<ul>", "<p style='text-align:justify'><ul>")
-      .replace("</ul>", "</ul></p>")
-    ;
-    document.getElementById("textarea").innerHTML += `</div>`; // close text1 col-sm-12 text-justify
-  
-  
-    var image = section.getElementsByClassName("image")[0];
-    var img = document.createElement("img");
-    img.src = image.value;
-     if (image.value) {
-          document.getElementById("textarea").innerHTML += `<div class="row">`;
-  document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
-       document.getElementById("textarea").innerHTML;
-   document.getElementById("textarea").innerHTML += `</div>`; // close image row
-    document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
-     }
-    document.getElementById("textarea").innerHTML += `</div>`; // close row
- 
-  var image = section.getElementsByClassName("image")[0];
-    var img = document.createElement("img");
-  img.src = image.value;
-if (image.value.includes("youtube.com")) {
-  document.getElementById("textarea").innerHTML += `<div class="row">`;
-    document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
- 
+	document.getElementById("textarea").innerHTML += `<div class="row">`;
+	var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
+	var paragraphData = paragraph.getData();
+	var header = section.getElementsByClassName("header")[0];
+	if (paragraphData || header.value) {
+		document.getElementById("textarea").innerHTML += `<div class="text1 col-sm-12 text-justify">`;
+		var h2 = document.createElement("h2");
+		h2.style = "text-align: center;"
+		h2.textContent = header.value;
+		if (header.value) {
+			document.getElementById("textarea").innerHTML += h2.outerHTML;
+		}
 
-  
-document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="${image.value}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
-document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe
-      document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
-    document.getElementById("textarea").innerHTML += `</div>`; // close div
-} else {
- if (image.value) {
-          document.getElementById("textarea").innerHTML += `<div class="row">`;
-  document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
-   document.getElementById("textarea").innerHTML += `<img src="${image.value}"/>`
-   document.getElementById("textarea").innerHTML += `</div>`; // close image row
-    document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
-     }
-    document.getElementById("textarea").innerHTML += `</div>`; // close row
+
+		document.getElementById("textarea").innerHTML += paragraphData
+			.replace("<p", "<p style='text-align:justify'")
+			.replace("<ul>", "<p style='text-align:justify'><ul>")
+			.replace("</ul>", "</ul></p>");
+		document.getElementById("textarea").innerHTML += `</div>`; // close text1 col-sm-12 text-justify
+	}
+
+	var image = section.getElementsByClassName("image")[0];
+	var img = document.createElement("img");
+	img.src = image.value;
+	if (image.value) {
+		document.getElementById("textarea").innerHTML += `<div class="row">`;
+		document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
+		document.getElementById("textarea").innerHTML;
+		document.getElementById("textarea").innerHTML += `</div>`; // close image row
+		document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
+	}
+	document.getElementById("textarea").innerHTML += `</div>`; // close row
+
+	var image = section.getElementsByClassName("image")[0];
+	var img = document.createElement("img");
+	img.src = image.value;
+	if (image.value.includes("youtube.com")) {
+		document.getElementById("textarea").innerHTML += `<div class="row">`;
+		document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
+		document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="${image.value}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
+		document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe
+		document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
+		document.getElementById("textarea").innerHTML += `</div>`; // close div
+	} else {
+		if (image.value) {
+			document.getElementById("textarea").innerHTML += `<div class="row">`;
+			document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
+			document.getElementById("textarea").innerHTML += `<img src="${image.value}"/>`
+			document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
+		}
+		document.getElementById("textarea").innerHTML += `</div>`; // close row
+	}
 }
-}
+
 function addMore() {
-    var sections = document.getElementById("sections");
-    var section1Clone = document.getElementById("section-1").cloneNode(true);
-    section1Clone.id = "section-" + ++sectionsCounter;
-    sectionsIndexes.push(sectionsCounter);
-    section1Clone.getElementsByClassName("ck")[0].remove();
-    ClassicEditor.create(section1Clone.querySelector('.ckeditor'));
-    
-  var bt = document.createElement("button");
-  bt.textContent = "Delete section";
-  bt.type = "button"
-  bt.onclick = () => remove(sectionsCounter);
-  console.log(sectionsCounter);
-  section1Clone.appendChild(bt); 
-  
-  sections.appendChild(section1Clone);
-    var input = section1Clone.getElementsByTagName("input");
-    
-    input[0].value = "";
-    input[1].value = "";  
-    input[2].value = "";
+	var sections = document.getElementById("sections");
+	var section1Clone = document.getElementById("section-1").cloneNode(true);
+	section1Clone.id = "section-" + ++sectionsCounter;
+	sectionsIndexes.push(sectionsCounter);
+	section1Clone.getElementsByClassName("ck")[0].remove();
+	ClassicEditor.create(section1Clone.querySelector('.ckeditor'));
+
+	var bt = document.createElement("button");
+	bt.textContent = "Delete section";
+	bt.type = "button"
+	bt.onclick = () => remove(sectionsCounter);
+	console.log(sectionsCounter);
+	section1Clone.appendChild(bt);
+
+	sections.appendChild(section1Clone);
+	var input = section1Clone.getElementsByTagName("input");
+
+	input[0].value = "";
+	input[1].value = "";
+	input[2].value = "";
 
 }
 
 function remove(id) {
-    var sections = document.getElementById("sections");
-    
-    var sectionToDelete = document.getElementById("section-" + id)
-    sectionToDelete.remove();
-    sectionsCounter--;
-    sectionsIndexes = sectionsIndexes.filter(item => item !== value)
+	var sections = document.getElementById("sections");
+
+	var sectionToDelete = document.getElementById("section-" + id)
+	sectionToDelete.remove();
+	sectionsCounter--;
+	sectionsIndexes = sectionsIndexes.filter(item => item !== value)
 
 }

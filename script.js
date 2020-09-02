@@ -139,7 +139,6 @@ document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe
           document.getElementById("textarea").innerHTML += `<div class="row">`;
   document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
    document.getElementById("textarea").innerHTML += `<img src="${image.value}"/>`
-       document.getElementById("textarea").innerHTML += image.value;
    document.getElementById("textarea").innerHTML += `</div>`; // close image row
     document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
      }

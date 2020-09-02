@@ -126,7 +126,7 @@ function convertSection(section) {
     img.src = image.value;
 if (image.value.includes("youtube.com")) {
   document.getElementById("textarea").innerHTML += `<div class="row">`;
-document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="${image.value}" frameborder="0" allow "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
+document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="${image.value}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
 document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe
     document.getElementById("textarea").innerHTML += `</div>`; // close div
 } else {

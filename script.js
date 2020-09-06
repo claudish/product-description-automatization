@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function(event) {
     ClassicEditor.create(document.querySelector('.ckeditor'))
 });
 var sectionsCounter = 1;
@@ -84,7 +84,7 @@ function convertText() {
         convertSection(sec);
     })
 
-    document.getElementById("textarea").innerHTML += `</div>`;    
+    document.getElementById("textarea").innerHTML += `</div>`;
 }
 
 
@@ -93,7 +93,8 @@ function convertSection(section) {
     var paragraph = section.getElementsByClassName("ck-editor__editable")[0].ckeditorInstance;
     var paragraphData = paragraph.getData();
     var header = section.getElementsByClassName("header")[0];
-    if (paragraphData || header.value) {
+    var pOrHeader = paragraphData || header.value;
+    if (pOrHeader) {
         document.getElementById("textarea").innerHTML += `<div class="text1 col-sm-12 text-justify">`;
         var h2 = document.createElement("h2");
         h2.style = "text-align: center;"
@@ -107,30 +108,29 @@ function convertSection(section) {
             .replace("<ul>", "<p style='text-align:justify'><ul>")
             .replace("</ul>", "</ul></p>");
         document.getElementById("textarea").innerHTML += `</div>`; // close text1 col-sm-12 text-justify
-
     }
 
     var image = section.getElementsByClassName("image")[0];
-    var img = document.createElement("img");
-    img.src = image.value;
-    if (image.value.includes("youtu")) {
-        document.getElementById("textarea").innerHTML += `<div class="row">`;
-        document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
-        document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="${image.value}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
-        document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe
-        document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
-        document.getElementById("textarea").innerHTML += `</div>`; // close div
-    } else {
-        if (image.value) {
+    if (image.value) {
+        if (pOrHeader) {
             document.getElementById("textarea").innerHTML += `<div class="row">`;
-            document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
-            document.getElementById("textarea").innerHTML += `<img src="${image.value}"/>`;
-            document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
-            document.getElementById("textarea").innerHTML += `</div>`; // close div
+        }
 
+        document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
+        if (image.value.includes("youtu")) {
+            document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="${image.value}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
+            document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe
+        } else {
+            document.getElementById("textarea").innerHTML += `<img src="${image.value}"/>`;
+        }
+        document.getElementById("textarea").innerHTML += `</div>`; // close image col-sm-12 text-center
+
+        if (pOrHeader) {
+            document.getElementById("textarea").innerHTML += `</div>`; // close div
         }
     }
-    document.getElementById("textarea").innerHTML += `</div>`; // close div
+              document.getElementById("textarea").innerHTML += `</div>`; // close div
+
 }
 
 

@@ -118,7 +118,7 @@ function convertSection(section) {
 
         document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
         if (image.value.includes("youtu")) {
-   	    document.getElementById("textarea").innerHTML += `<div class="videoWrapper swiper-video-wrapper">`;
+   	    document.getElementById("textarea").innerHTML += `<div class="swiper-video-wrapper">`;
             document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="${image.value}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
             document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe
 	    document.getElementById("textarea").innerHTML += `</div>`; 

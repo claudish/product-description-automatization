@@ -104,7 +104,7 @@ function convertSection(section) {
         }
 
         document.getElementById("textarea").innerHTML += paragraphData
-            .replace("<p", "<p style='text-align:justify'")
+            .replaceAll("<p", "<p style='text-align:justify'")
             .replace("<ul>", "<p style='text-align:justify'><ul>")
             .replace("</ul>", "</ul></p>");
         document.getElementById("textarea").innerHTML += `</div>`; // close text1 col-sm-12 text-justify

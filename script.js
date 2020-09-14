@@ -118,7 +118,7 @@ function convertSection(section) {
 
         document.getElementById("textarea").innerHTML += `<div class="image col-sm-12 text-center" style="text-align: center;">`;
         if (image.value.includes("youtu")) {
-   	    document.getElementById("textarea").innerHTML += `<div class="swiper-video-wrapper">`;
+   	    document.getElementById("textarea").innerHTML += `<div class="videoWrapper">`;
    	        var ytId = image.value.match(/(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/user\/\S+|\/ytscreeningroom\?v=|\/sandalsResorts#\w\/\w\/.*\/))([^\/&]{10,12})/)[1];
             document.getElementById("textarea").innerHTML += `<iframe width="900" height="506" src="https://www.youtube.com/embed/${ytId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
             document.getElementById("textarea").innerHTML += `</iframe>`; // close iframe

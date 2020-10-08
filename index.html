@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width">
   <title>Product description automatization</title>
   <style>
-    #textarea {
-      width: 400px;
-      height: 400px;
-      margin-left: 30px;
+#textarea {
+ margin-left: 50px; 
+  width: 400px;
+  height: 400px;
     }
-    .header  {
+.header  {
       padding: 10px;
-      margin-bottom: 10px;
-      height: 30px;
-      width: 660px;
+  margin-bottom: 10px;
+  height: 30px;
+  width: 660px;
     }
     .paragraph {
       margin-bottom: 10px;
@@ -23,35 +23,23 @@
       padding: 10px;
       margin-bottom: 10px;
       height: 30px;
-      width: 660px;
+        width: 660px;
+
     }
+    
     button {
       margin-top: 10px;
       margin-bottom: 10px;
     }
-    .ck {
+    
+   .ck {
       margin-bottom: 10px;
     }
     body {
       display: flex;
     }
-    #sections > div {
-      border: 3px solid;
-      padding: 10px;
-    }
-    #add {
-      position: relative;
-      left: 50px;    
-    }
-    #convert {
-      position: relative;
-      left: 50px;
-    }
-    #text-after {
-      position: sticky;
-      height: 600px;
-      top: 0;
-    }
+    
+  
   </style>
 <script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
 <script src="script.js"></script>
@@ -59,6 +47,9 @@
 <body>
   
  <div id="text-before">
+          <button type="button" id="add" onclick="addMore()">Add more</button>
+   <button type="button" id="convert" onclick="convertText()">Convert</button>
+   
    <div id="sections">
      <div id="section-1">
   <label for="header">Nagłówek:</label> 
@@ -68,13 +59,11 @@
      <div class="ckeditor" id="ckeditor"></div>
      <label for="image">Zdjęcie/film:</label>
   <input type="url" class="image" id="image">
-        <button type="button" id="add" onclick="addMore()">Add more</button>
-   <button type="button" id="convert" onclick="convertText()">Convert</button>
    </div>
    </div>
   </div>
   <div id="text-after">
-    <textarea id="textarea"></textarea>
-  </div>
+    <textarea id="textarea"></textarea></div>
 </body>
 </html>
+

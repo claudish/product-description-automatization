@@ -42,7 +42,7 @@ function convertText() {
         font-size: 10px;
     }
     
-    .desc-items1 h2 {
+    .desc-items1 h3 {
         font-size: 24px;
     }
     
@@ -96,11 +96,11 @@ function convertSection(section) {
     var pOrHeader = paragraphData || header.value;
     if (pOrHeader) {
         document.getElementById("textarea").innerHTML += `<div class="text1 col-sm-12 text-justify">`;
-        var h2 = document.createElement("h2");
-        h2.style = "text-align: center;"
-        h2.textContent = header.value;
+        var h3 = document.createElement("h3");
+        h3.style = "text-align: center;"
+        h3.textContent = header.value;
         if (header.value) {
-            document.getElementById("textarea").innerHTML += h2.outerHTML;
+            document.getElementById("textarea").innerHTML += h3.outerHTML;
         }
 
         document.getElementById("textarea").innerHTML += paragraphData
